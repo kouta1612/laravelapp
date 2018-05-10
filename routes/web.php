@@ -10,10 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+\URL::forceScheme('https');
 Route::get('/', 'PostsController@index');
 // Route::get('/posts/{post}', 'PostsController@show')->where('post', '[0-9+]');
 Route::get('/posts/create', 'PostsController@create');
 Route::get('/posts/{post}', 'PostsController@show');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}/edit', 'PostsController@edit');
-\URL::forceScheme('https');
+Route::patch('/posts/{post}', 'PostsController@update');
+Route::delete('/posts/{post}', 'PostsController@destroy');
